@@ -25,6 +25,7 @@ export interface HeaderRowProps<R, K extends keyof R> extends SharedHeaderProps<
   columns: CalculatedColumn<R>[];
   lastFrozenColumnIndex: number;
   onColumnResize(column: CalculatedColumn<R>, width: number): void;
+  onHeaderClick(column: CalculatedColumn<R>): void;
   onAllRowsSelectionChange(checked: boolean): void;
   filterable?: boolean;
   onFilterChange?(args: AddFilterEvent<R>): void;
@@ -111,6 +112,7 @@ export default class HeaderRow<R, K extends keyof R> extends React.Component<Hea
           height={this.props.height}
           renderer={renderer}
           onResize={this.props.onColumnResize}
+          onHeaderClick={this.props.onHeaderClick}
           onHeaderDrop={this.props.onHeaderDrop}
           allRowsSelected={this.props.allRowsSelected}
           onAllRowsSelectionChange={this.props.onAllRowsSelectionChange}

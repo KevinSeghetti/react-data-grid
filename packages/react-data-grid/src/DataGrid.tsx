@@ -60,8 +60,11 @@ export interface DataGridProps<R, K extends keyof R> {
   minColumnWidth?: number;
   /** Function called whenever row is clicked */
   onRowClick?(rowIdx: number, rowData: R, column: CalculatedColumn<R>): void;
+  /** Function called whenever the header row is clicked */
+  onHeaderClick?(column: CalculatedColumn<R>): void;
   /** Function called whenever row is double clicked */
   onRowDoubleClick?(rowIdx: number, rowData: R, column: CalculatedColumn<R>): void;
+
   onAddFilter?(event: AddFilterEvent<R>): void;
   /** Function called whenever grid is sorted*/
   onGridSort?(columnKey: keyof R, direction: DEFINE_SORT): void;
@@ -256,6 +259,14 @@ function DataGrid<R, K extends keyof R>({
     }
   }
 
+  function handleHeaderClick(column: CalculatedColumn<R>) {
+      const { onHeaderClick } = props;
+
+      if (onHeaderClick) {
+        onHeaderClick( column);
+      }
+  }
+
   function handleScroll(scrollPosition: ScrollPosition) {
     if (headerRef.current && scrollLeft.current !== scrollPosition.scrollLeft) {
       scrollLeft.current = scrollPosition.scrollLeft;
@@ -437,6 +448,7 @@ function DataGrid<R, K extends keyof R>({
             onSelectedRowsChange={onSelectedRowsChange}
             getValidFilterValues={props.getValidFilterValues}
             cellMetaData={cellMetaData}
+            onHeaderClick={handleHeaderClick}
           />
           {rowsCount === 0 && isValidElementType(props.emptyRowsView) ? createElement(props.emptyRowsView) : (
             <Canvas<R, K>

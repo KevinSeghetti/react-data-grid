@@ -26,6 +26,7 @@ export interface HeaderProps<R, K extends keyof R> extends SharedDataGridProps<R
   cellMetaData: CellMetaData<R>;
   onSort?(columnKey: keyof R, direction: DEFINE_SORT): void;
   onColumnResize(column: CalculatedColumn<R>, width: number): void;
+  onHeaderClick(column: CalculatedColumn<R>): void;
 }
 
 export interface HeaderHandle {
@@ -68,6 +69,7 @@ export default forwardRef(function Header<R, K extends keyof R>(props: HeaderPro
         ref={ref}
         rowType={row.rowType}
         onColumnResize={props.onColumnResize}
+        onHeaderClick={props.onHeaderClick}
         width={props.columnMetrics.totalColumnWidth + getScrollbarSize()}
         height={row.height}
         columns={props.columnMetrics.columns}

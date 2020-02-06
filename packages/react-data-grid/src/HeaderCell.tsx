@@ -17,6 +17,7 @@ export interface HeaderCellProps<R> {
   rowType: HeaderRowType;
   height: number;
   onResize(column: CalculatedColumn<R>, width: number): void;
+  onHeaderClick(column: CalculatedColumn<R>): void;
   onHeaderDrop?(): void;
   allRowsSelected: boolean;
   onAllRowsSelectionChange(checked: boolean): void;
@@ -119,6 +120,12 @@ export default class HeaderCell<R> extends React.Component<HeaderCellProps<R>> {
     }
   }
 
+  onClick(e: object) {
+      if (typeof this.props.onHeaderClick === 'function') {
+          this.props.onHeaderClick(this.props.column);
+    }
+  }
+
   removeScroll() {
     const node = this.cell.current;
     if (node) {
@@ -144,6 +151,8 @@ export default class HeaderCell<R> extends React.Component<HeaderCellProps<R>> {
           left: column.left
         }}
         onMouseDown={column.resizable ? this.onMouseDown : undefined}
+        onClick= { (e) => this.onClick(e) }
+
         onTouchStart={column.resizable ? this.onTouchStart : undefined}
       >
         {this.getCell()}
