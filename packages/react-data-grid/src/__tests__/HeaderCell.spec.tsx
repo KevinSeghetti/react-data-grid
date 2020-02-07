@@ -33,6 +33,7 @@ describe('Header Cell Tests', () => {
       draggableHeaderCell: DraggableHeaderCell,
       allRowsSelected: false,
       onAllRowsSelectionChange() {},
+      onHeaderClick() {},
       ...overrideProps
     };
     const wrapper = mount<HeaderCell<Row>>(<HeaderCell<Row> {...props} />);

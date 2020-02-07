@@ -31,6 +31,7 @@ describe('Header Unit Tests', () => {
       onColumnResize: jest.fn(),
       onSort: () => null,
       onHeaderDrop() { },
+      onHeaderClick() { },
       draggableHeaderCell: () => null
     };
   }
@@ -81,6 +82,7 @@ describe('Header Unit Tests', () => {
       }, undefined],
       onSort: jest.fn(),
       onHeaderDrop() { },
+      onHeaderClick() { },
       cellMetaData: fakeCellMetaData,
       draggableHeaderCell: () => null,
       onColumnResize() { }
@@ -105,6 +107,7 @@ describe('Header Unit Tests', () => {
       sortDirection: DEFINE_SORT.DESC,
       onSort: jest.fn(),
       onColumnResize: jest.fn(),
+      onHeaderClick: jest.fn(),
       draggableHeaderCell: jest.fn(),
       getValidFilterValues: jest.fn(),
       cellMetaData: fakeCellMetaData,

@@ -23,6 +23,7 @@ describe('Header Row Unit Tests', () => {
     onAllRowsSelectionChange() {},
     onFilterChange() { },
     onHeaderDrop() { },
+    onHeaderClick() { },
     draggableHeaderCell: () => <div />
   };
 
@@ -143,6 +144,7 @@ describe('Header Row Unit Tests', () => {
       onColumnResize: jest.fn(),
       onFilterChange() { },
       onHeaderDrop() { },
+      onHeaderClick() { },
       draggableHeaderCell: () => <div />
     };
 
