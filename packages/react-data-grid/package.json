@@ -1,5 +1,5 @@
 {
-  "name": "react-data-grid",
+  "name": "@kevinseghetti/react-data-grid",
   "version": "7.0.0-alpha.25",
   "description": "Excel-like grid component built with React, with editors, keyboard navigation, copy & paste, and the like",
   "author": "Adazzle",
@@ -12,10 +12,13 @@
     "lib"
   ],
   "sideEffects": false,
-  "repository": "adazzle/react-data-grid",
-  "homepage": "https://github.com/adazzle/react-data-grid",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinSeghetti/react-data-grid.git"
+  },
+  "homepage": "https://github.com/KevinSeghetti/react-data-grid",
   "bugs": {
-    "url": "https://github.com/adazzle/react-data-grid/issues"
+    "url": "https://github.com/KevinSeghetti/react-data-grid/issues"
   },
   "keywords": [
     "react",
@@ -40,5 +43,9 @@
     "@types/react-is": "^16.7",
     "react": "^16.8",
     "react-dom": "^16.8"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {}
 }
